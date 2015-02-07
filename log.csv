@@ -1,3 +1,5 @@
-Building,Time,Washers,Dryers,Total
-Mohawk,2014-12-26 20:26:59 -0500,8,7,8
-Mohawk,2014-12-26 20:28:38 -0500,8,7,8
+Building,Time,Available,Total
+BroomeDryers,2015-02-07 12:32:59 -0500,3,14
+BroomeWashers,2015-02-07 12:32:59 -0500,14,14
+EndicottDryers,2015-02-07 12:32:59 -0500,14,14
+EndicottWashers,2015-02-07 12:32:59 -0500,10,14
