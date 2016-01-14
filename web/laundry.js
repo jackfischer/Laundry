@@ -1,12 +1,25 @@
-//'use strict'
+'use strict'
 
 var ctx = document.getElementById("myChart");
 
 var linechart = new Chart(ctx, {
   type: 'line',
-  data: daily_data,
+  data: {
+    labels:["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+    datasets: [{
+      label: "Washers",
+      data: [5,5,6,5,2,7,5],
+      fill:false
+    },
+    {
+      label: "Dryers",
+      data: [4,4,5,4,1,6,4],
+      fill:false
+    }]
+  },
+
   options: {
-    responsive: false
+    responsive: true
   }
 });
 
@@ -14,15 +27,32 @@ var linechart = new Chart(ctx, {
 
 
 document.getElementById("weekly").onclick=function() {
-  console.log("weekly");
-  linechart.data.labels = weekly_data.labels;
-  linechart.data.datasets = weekly_data.datasets;
+  linechart.data.labels = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday"];
+  linechart.data.datasets = [{
+    label: "Washers",
+    data: [5,5,6,5,2,7,5]
+  },
+  {
+    label: "Dryers",
+    data: [4,4,5,4,1,6,4]
+  }];
+
   linechart.update();
+  console.log("weekly");
 };
 
 document.getElementById("daily").onclick=function() {
-  console.log("daily");
-  linechart.data.labels = daily_data.labels;
-  linechart.data.datasets = daily_data.datasets;
+  linechart.data.labels = [1,2,3,4,5,6,7,8,9,10,11,12,1,2,3,4,5,6,7,8,9,10,11,12];
+  linechart.data.datasets = [{
+    label: "Washers",
+    data:[2,6,7,3,2,5,5,6,5,2,7,5,5,5,6,5,2,7,5,6,8,2,2,9]
+  },
+  {
+    label: "Dryers",
+    data: [2,6,2,3,2,2,5,6,5,4,7,5,4,5,6,5,2,7,5,6,8,2,2,9]
+  }];
+
   linechart.update();
+  console.log("daily");
 };
+

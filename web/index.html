@@ -7,24 +7,22 @@
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
+        <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/css/materialize.min.css">
         <link href="style.css" rel="stylesheet">
-        <script src="data.js"></script>
-        <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script> -->
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.11.1/moment.js"></script>
 
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.0.0-beta2/Chart.js"></script> 
-        <!-- script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/1.0.2/Chart.js"></script>  -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.11.1/moment.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.0.0-beta2/Chart.js"></script>
     </head>
 
 
 
-    <body>
-        <button id="weekly">Weekly</button>
-        <button id="daily">Daily</button>
-        <div id="container">
-            <canvas id="myChart" width="1000", height="500"></canvas>
+    <body height="100%" width="100%">
+        <div class="container">
+            <button id="weekly">Weekly</button>
+            <button id="daily">Daily</button>
+            <canvas id="myChart" class="col s9" ></canvas>
             <script src="laundry.js"></script>
         </div>
-        <p>Hello world! This is HTML5 Boilerplate.</p>
     </body>
 </html>
