@@ -19,11 +19,12 @@ var linechart = new Chart(ctx, {
   },
 
   options: {
-    responsive: false
+    responsive: true
   }
 });
 
 
+//TODO: axes labels
 
 
 document.getElementById("weekly").onclick=function() {
