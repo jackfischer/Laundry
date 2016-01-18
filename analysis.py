@@ -32,14 +32,17 @@ for row in data:
 
 #weekly data
 for i, day in enumerate(washers):
-  print "washer average day %d: %d" % (i, sum(day) / len(day))
+  avg = (sum(day) / float(len(day))) * 100 / 14.0
+  print "washer average day %d: %s" % (i, str(round(avg,1)))
 for i, day in enumerate(dryers):
-  print "dryer average day %d: %d" % (i, sum(day) / len(day))
+  avg = (sum(day) / float(len(day))) * 100 / 14.0
+  print "dryer average day %d: %s" % (i, str(round(avg,1)))
 
 #calculate averages for daily data
 for day in range(len(days)):
   for hour in range(len(days[day])):
-    days[day][hour] = sum(days[day][hour]) / len(days[day][hour])
+    avg = sum(days[day][hour]) / float(len(days[day][hour])) * 100 / 14.0
+    days[day][hour] = round(avg,1)
 #output daily data
 for i, day in enumerate(days):
   print "day %d: " % (i) + str(day)

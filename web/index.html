@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <title>Laundry</title>
+        <title>Binghamton Laundry Analysis</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -15,14 +15,12 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.0.0-beta2/Chart.js"></script>
     </head>
 
-
-
     <body>
 
         <main>
         <nav class="light-red lighten-1" role="navigation">
             <div class="nav-wrapper container">
-                <span class="brand-logo">Newing Laundry Analysis</span>
+                <span class="brand-logo">Binghamton Laundry Analysis</span>
             </div>
         </nav>
 
@@ -35,19 +33,25 @@
             </div>
 
             <div id="chart" class="row section center-align">
-                <canvas id="myChart" width=700 height=400 class="" ></canvas>
+                <canvas id="myChart" width=900 height=500 class="" ></canvas>
                 <script src="laundry.js"></script>
             </div>
 
-            <!-- <div id="days" class="row center-align">
-                <button class="btn light-blue lighten-" id="mon" onclick="daily(this.id)" >Monday</button>
-                </div> -->
+            <div id="days" class="row center-align">
+                <button class="btn light-blue" id="0" onclick="daily(this.id)" >Sunday</button>
+                <button class="btn light-blue" id="1" onclick="daily(this.id)" >Monday</button>
+                <button class="btn light-blue" id="2" onclick="daily(this.id)" >Tuesday</button>
+                <button class="btn light-blue" id="3" onclick="daily(this.id)" >Wednesday</button>
+                <button class="btn light-blue" id="4" onclick="daily(this.id)" >Thursday</button>
+                <button class="btn light-blue" id="5" onclick="daily(this.id)" >Friday</button>
+                <button class="btn light-blue" id="6" onclick="daily(this.id)" >Saturday</button>
+            </div>
 
-                <div id="description" class="row center-align">
-                    <div class="col s10 offset-s1">
-                        <p class="center-align">Binghamton's laundry machines are hooked up to eSuds to <a href="http://binghamton-asi.esuds.net/RoomStatus/showRoomStatus.do">check availability remotely</a>. However, there was no way to view historical data or decide when would be best to do your laundry overall. I wrote a <a href="https://github.com/jackfischer/Laundry/blob/master/laundry.rb">simple scraper</a> to log laundry capacity in Newing. This collected over <a href="https://github.com/jackfischer/Laundry/blob/master/log.csv">60,000 data points</a> over several months.</p>
-                    </div>
+            <div id="description" class="row center-align">
+                <div class="col s10 offset-s1">
+                    <p class="center-align">Binghamton's laundry machines are hooked up to eSuds to <a href="http://binghamton-asi.esuds.net/RoomStatus/showRoomStatus.do">check availability remotely</a>. However, there was no way to view historical data or decide when would be best to do your laundry overall. I wrote a <a href="https://github.com/jackfischer/Laundry/blob/master/laundry.rb">simple scraper</a> to log laundry capacity in <a href="http://binghamton-asi.esuds.net/RoomStatus/showRoomStatus.i?locationId=1033794">Newing</a>. This collected over <a href="https://github.com/jackfischer/Laundry/blob/master/log.csv">60,000 data points</a> over several months.</p>
                 </div>
+            </div>
         </div>
         </main>
 
@@ -63,13 +67,13 @@
         </footer>
 
         <script>
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
-  ga('create', 'UA-72531217-1', 'auto');
-  ga('send', 'pageview');
+ga('create', 'UA-72531217-1', 'auto');
+ga('send', 'pageview');
         </script>
 
     </body>
