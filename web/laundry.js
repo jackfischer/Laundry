@@ -34,15 +34,9 @@ var linechart = new Chart(ctx, {
     },
     animation:{
       duration:1000
-    },
-    scales: { 
-      yAxes: [{scaleLabel:"Percent Load"}]
     }
   }
 });
-
-
-//TODO: axes labels
 
 
 document.getElementById("weekly").onclick=function() {
@@ -119,20 +113,13 @@ document.getElementById("daily").onclick=function() {
 
 function daily(day) {
   console.log(day);
-  /*
-  for (var i = 0; i < linechart.data.datasets.length; i++) {
-    console.log(i);
-    linechart.data.datasets[i].pointBackgroundColor = 'rgba(0,0,0,0.1)';
-    linechart.data.datasets[i].pointBorderColor = 'rgba(0,0,0,0.1)';
-    linechart.data.datasets[i].backgroundColor = 'rgba(0,0,0,0.1)';
-    linechart.data.datasets[i].pointBackgroundColor = 'rgba(0,0,0,0.1)';
-  }*/
-  
   var color = "#80d8ff";
+
   if (linechart.data.datasets[day].backgroundColor == "#80d8ff") {
     console.log("same");
     color = 'rgba(0,0,0,0.1)';
   }
+
   linechart.data.datasets[day].pointBackgroundColor = color;
   linechart.data.datasets[day].pointBorderColor = color;
   linechart.data.datasets[day].backgroundColor = color;
@@ -140,5 +127,4 @@ function daily(day) {
 
   linechart.update();
 }
-
 
