@@ -11,6 +11,7 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/css/materialize.min.css">
         <link href="style.css" rel="stylesheet">
 
+        <script src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.11.1/moment.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.0.0-beta2/Chart.js"></script>
     </head>
@@ -20,19 +21,19 @@
         <main>
         <nav class="light-red lighten-1" role="navigation">
             <div class="nav-wrapper container">
-                <span class="brand-logo">Binghamton Laundry Analysis</span>
+                <span class="brand-logo">Binghamton Laundry</span>
             </div>
         </nav>
 
         <div class="container">
             <div class="row section"></div>
 
-            <div id="buttons" class="row section center-align">
-                <button class="btn" id="weekly">Weekly</button>
-                <button class="btn" id="daily">Daily</button>
+            <div id="buttons" class="row center-align">
+                <button class="btn-large" id="weekly">Weekly</button>
+                <button class="btn-large" id="daily">Daily</button>
             </div>
 
-            <div id="chart" class="row section center-align">
+            <div id="chart" class="row center-align">
                 <canvas id="myChart" width=900 height=500 class="" ></canvas>
                 <script src="laundry.js"></script>
             </div>
@@ -49,7 +50,7 @@
 
             <div id="description" class="row center-align">
                 <div class="col s10 offset-s1">
-                    <p class="center-align">Binghamton's laundry machines are hooked up to eSuds to <a href="http://binghamton-asi.esuds.net/RoomStatus/showRoomStatus.do">check availability remotely</a>. However, there was no way to view historical data or decide when would be best to do your laundry overall. I wrote a <a href="https://github.com/jackfischer/Laundry/blob/master/laundry.rb">simple scraper</a> to log laundry capacity in <a href="http://binghamton-asi.esuds.net/RoomStatus/showRoomStatus.i?locationId=1033794">Newing</a>. This collected over <a href="https://github.com/jackfischer/Laundry/blob/master/log.csv">60,000 data points</a> over several months.</p>
+                    <p class="center-align">Binghamton's laundry machines are hooked up to eSuds to <a href="http://binghamton-asi.esuds.net/RoomStatus/showRoomStatus.do">check availability remotely</a>. However, there was no way to view historical data or decide when would be best to do your laundry overall. I wrote a <a href="https://github.com/jackfischer/Laundry/blob/master/laundry.rb">simple scraper</a> to log laundry capacity in <a href="https://www.binghamton.edu/residential-life/communities/newing/">Newing</a>. This collected over <a href="https://github.com/jackfischer/Laundry/blob/master/log.csv">60,000 data points</a> over several months.</p>
                 </div>
             </div>
         </div>

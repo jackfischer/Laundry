@@ -33,7 +33,7 @@ var linechart = new Chart(ctx, {
       labels: {padding: 30}
     },
     animation:{
-      duration:1200
+      duration:1000
     },
     scales: { 
       yAxes: [{scaleLabel:"Percent Load"}]
@@ -46,6 +46,7 @@ var linechart = new Chart(ctx, {
 
 
 document.getElementById("weekly").onclick=function() {
+  $("#days").slideUp();
   linechart.data.labels = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
   linechart.data.datasets = [{
     label: "Washers",
@@ -73,6 +74,7 @@ document.getElementById("weekly").onclick=function() {
 
 
 document.getElementById("daily").onclick=function() {
+  $("#days").slideDown();
   linechart.data.labels = ["1a","2a","3a","4a","5a","6a","7a","8a","9a","10a","11a","12p","1p","2p","3p","4p","5p","6p","7p","8p","9p","10p","11p","12p"];
   linechart.data.datasets = [{
     label: "Sunday",
@@ -117,7 +119,25 @@ document.getElementById("daily").onclick=function() {
 
 function daily(day) {
   console.log(day);
-  linechart.data.datasets[day].pointBackgroundColor = "#80d8ff";
+  /*
+  for (var i = 0; i < linechart.data.datasets.length; i++) {
+    console.log(i);
+    linechart.data.datasets[i].pointBackgroundColor = 'rgba(0,0,0,0.1)';
+    linechart.data.datasets[i].pointBorderColor = 'rgba(0,0,0,0.1)';
+    linechart.data.datasets[i].backgroundColor = 'rgba(0,0,0,0.1)';
+    linechart.data.datasets[i].pointBackgroundColor = 'rgba(0,0,0,0.1)';
+  }*/
+  
+  var color = "#80d8ff";
+  if (linechart.data.datasets[day].backgroundColor == "#80d8ff") {
+    console.log("same");
+    color = 'rgba(0,0,0,0.1)';
+  }
+  linechart.data.datasets[day].pointBackgroundColor = color;
+  linechart.data.datasets[day].pointBorderColor = color;
+  linechart.data.datasets[day].backgroundColor = color;
+  linechart.data.datasets[day].borderColor = color;
+
   linechart.update();
 }
 
