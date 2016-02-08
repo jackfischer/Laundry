@@ -1,78 +1,77 @@
 <!doctype html>
 <html>
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <title>Binghamton Laundry Analysis</title>
-        <meta name="description" content="">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="x-ua-compatible" content="ie=edge">
+<title>Binghamton Laundry Analysis</title>
+<meta name="description" content="">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel='shortcut icon' href='http://www.binghamton.edu/favicon.ico/'/ >
+<link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/css/materialize.min.css">
+<link href="style.css" rel="stylesheet">
+<script src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.0.0-beta2/Chart.js"></script>
+</head>
 
-        <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/css/materialize.min.css">
-        <link href="style.css" rel="stylesheet">
+<body>
+<main>
+<nav class="light-red lighten-1" role="navigation">
+    <div class="nav-wrapper container">
+        <div class="brand-logo">Laundry Visualization</div>
+    </div>
+</nav>
 
-        <script src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.11.1/moment.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.0.0-beta2/Chart.js"></script>
-    </head>
+<div class="container">
+    <div class="row section"></div>
 
-    <body>
-        <main>
-        <nav class="light-red lighten-1" role="navigation">
-            <div class="nav-wrapper container">
-                <span class="brand-logo">Laundry Visualization</span>
-            </div>
-        </nav>
+    <div id="buttons" class="row center-align">
+        <button class="btn-large" id="weekly">Weekly</button>
+        <button class="btn-large" id="daily">Daily</button>
+    </div>
 
-        <div class="container">
-            <div class="row section"></div>
+    <div id="chart" class="row center-align">
+        <!-- <p class="vertical-text">% Capacity in Use</p> -->
+        <canvas id="myChart" width=900 height=500 class="" ></canvas>
+        <script src="laundry.js"></script>
+    </div>
 
-            <div id="buttons" class="row center-align">
-                <button class="btn-large" id="weekly">Weekly</button>
-                <button class="btn-large" id="daily">Daily</button>
-            </div>
+    <div id="days" class="row center-align">
+        <button class="btn light-blue" onclick="daily(0)">Sunday</button>
+        <button class="btn light-blue" onclick="daily(1)">Monday</button>
+        <button class="btn light-blue" onclick="daily(2)">Tuesday</button>
+        <button class="btn light-blue" onclick="daily(3)">Wednesday</button>
+        <button class="btn light-blue" onclick="daily(4)">Thursday</button>
+        <button class="btn light-blue" onclick="daily(5)">Friday</button>
+        <button class="btn light-blue" onclick="daily(6)">Saturday</button>
+    </div>
 
-            <div id="chart" class="row center-align">
-                <canvas id="myChart" width=900 height=500 class="" ></canvas>
-                <script src="laundry.js"></script>
-            </div>
-
-            <div id="days" class="row center-align">
-                <button class="btn light-blue" id="0" onclick="daily(this.id)" >Sunday</button>
-                <button class="btn light-blue" id="1" onclick="daily(this.id)" >Monday</button>
-                <button class="btn light-blue" id="2" onclick="daily(this.id)" >Tuesday</button>
-                <button class="btn light-blue" id="3" onclick="daily(this.id)" >Wednesday</button>
-                <button class="btn light-blue" id="4" onclick="daily(this.id)" >Thursday</button>
-                <button class="btn light-blue" id="5" onclick="daily(this.id)" >Friday</button>
-                <button class="btn light-blue" id="6" onclick="daily(this.id)" >Saturday</button>
-            </div>
-
-            <div id="description" class="row center-align">
-                <div class="col s10 offset-s1">
-                    <p class="center-align">Binghamton's laundry machines are hooked up to <a href="http://binghamton-asi.esuds.net/RoomStatus/showRoomStatus.do">eSuds</a> to check availability remotely. However, there was no way to view historical data or decide when would be best to do your laundry overall. I wrote a <a href="https://github.com/jackfischer/Laundry/blob/master/laundry.rb">simple scraper</a> to log laundry capacity in <a href="https://www.binghamton.edu/residential-life/communities/newing/">Newing</a>. This collected over <a href="https://github.com/jackfischer/Laundry/blob/master/log.csv">60,000 data points</a> over several months.</p>
-                </div>
-            </div>
+    <div id="description" class="row center-align">
+        <div class="col s10 offset-s1">
+            <p class="center-align">Binghamton's laundry machines are hooked up to <a href="http://binghamton-asi.esuds.net/RoomStatus/showRoomStatus.do">eSuds</a> to check availability remotely. However, there was no way to view historical data or decide when would be best to do your laundry overall. I wrote a <a href="https://github.com/jackfischer/Laundry/blob/master/laundry.rb">simple scraper</a> to log laundry capacity in <a href="https://www.binghamton.edu/residential-life/communities/newing/">Newing</a>. This collected over <a href="https://github.com/jackfischer/Laundry/blob/master/log.csv">60,000 data points</a> over several months.</p>
         </div>
-        </main>
+    </div>
+</div>
+</main>
 
-        <footer class="page-footer">
-            <div class="container"></div>
-            <div class="footer-copyright">
-                <div class="container">
-                    <a class="grey-text text-lighten-4" href="http://jackfischer.me">By Jack Fischer</a>
-                    <a class="grey-text text-lighten-4 right" href="https://github.com/jackfischer/Laundry">Fork on GitHub</a>
-                </div>
-            </div>
-        </footer>
+<footer class="page-footer">
+    <div class="container"></div>
+    <div class="footer-copyright">
+        <div class="container">
+            <a class="grey-text text-lighten-4" href="http://jackfischer.me">By Jack Fischer</a>
+            <a class="grey-text text-lighten-4 right" href="https://github.com/jackfischer/Laundry">GitHub</a>
+        </div>
+    </div>
+</footer>
 
-        <script>
+<script>
 (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+ (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+ m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+ })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
 ga('create', 'UA-72531217-1', 'auto');
 ga('send', 'pageview');
-        </script>
-    </body>
+</script>
+</body>
 </html>

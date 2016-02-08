@@ -33,7 +33,7 @@ var linechart = new Chart(ctx, {
       labels: {padding: 30}
     },
     animation:{
-      duration:1000
+      duration:750
     }
   }
 });
