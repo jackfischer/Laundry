@@ -1,5 +1,3 @@
-'use strict'
-
 var ctx = document.getElementById("myChart");
 
 var linechart = new Chart(ctx, {
@@ -40,6 +38,7 @@ var linechart = new Chart(ctx, {
 
 
 document.getElementById("weekly").onclick=function() {
+  'use strict';
   $("#days").slideUp();
   linechart.data.labels = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
   linechart.data.datasets = [{
@@ -68,6 +67,7 @@ document.getElementById("weekly").onclick=function() {
 
 
 document.getElementById("daily").onclick=function() {
+  'use strict';
   $("#days").slideDown();
   linechart.data.labels = ["1a","2a","3a","4a","5a","6a","7a","8a","9a","10a","11a","12p","1p","2p","3p","4p","5p","6p","7p","8p","9p","10p","11p","12p"];
   linechart.data.datasets = [{
@@ -112,6 +112,7 @@ document.getElementById("daily").onclick=function() {
 };
 
 function daily(day) {
+  'use strict';
   console.log(day);
   var color = "#80d8ff";
 
